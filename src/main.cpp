@@ -69,17 +69,11 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-	// file name: path.txt
-	// timeout: 2000 ms
-	// lookahead distance: 15 inches
-	chassis.follow("offside match1.txt", 2000, 15);
-	Intake.move_velocity(600);
-  	pros::delay(1000); // Move at 600 RPM for 1 second
-  	Intake.move_velocity(0);
-	chassis.follow("offside match2.txt", 2000, 15);
-	chassis.follow("offside match3.txt", 2000, 15);
-	chassis.follow("offside match4.txt", 2000, 15);
-	chassis.follow("offside match5.txt", 2000, 15);
+	chassis.setPose(36,59,180);
+	chassis.moveTo(36,11,4000,95.25);
+	chassis.moveTo(43,11,2000,95.25);
+	chassis.moveTo(31,33,3000,95.25);
+	chassis.moveTo(54,56,4000,82.55);
 }
 
 /**
@@ -102,12 +96,24 @@ void opcontrol() {
 						 (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
 						 (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);
 		
+		//Catapult motor controller
+		if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
+        Cata.move(127);
+    	} else if(Catalimit.get_value()){
+        Cata.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+        Cata.brake();
+    	} else{
+        Cata.move(127);
+    }
+
+		// Split arcade drive code
 		int power = master.get_analog(ANALOG_LEFT_Y);
     	int turn = master.get_analog(ANALOG_RIGHT_X);
     	int left = power + turn;
     	int right = power - turn;
 		Leftsidedrive.move(left);
     	Rightsidedrive.move(right);
+
 		pros::delay(20);
 	}
 }
