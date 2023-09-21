@@ -19,7 +19,6 @@ pros::MotorGroup Rightsidedrive({FR, BR, TR});
 pros::ADIDigitalOut Int('A', false); // 3 Wire slot A, Intake pivot pistons
 
 // Rotation sensors for odom
-pros::Rotation rot(9, false); // port 9, not reversed
 pros::Rotation brot(10, false); // port 10, not reversed
 
 // inertial sensor

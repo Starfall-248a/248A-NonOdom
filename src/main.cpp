@@ -95,15 +95,16 @@ void opcontrol() {
 						 (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
 						 (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);
 		
+		
 		//Catapult motor controller
-		if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
+		if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)){
         Cata.move(127);
     	} else if(Catalimit.get_value()){
         Cata.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
         Cata.brake();
     	} else{
         Cata.move(127);
-    }
+    
 
 		// Split arcade drive code
 		int power = master.get_analog(ANALOG_LEFT_Y);
@@ -114,5 +115,6 @@ void opcontrol() {
     	Rightsidedrive.move(right);
 
 		pros::delay(20);
+		}
 	}
 }
