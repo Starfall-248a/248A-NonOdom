@@ -15,9 +15,5 @@ pros::Motor Intake(11, pros::E_MOTOR_GEARSET_06, false); // port 11, blue gearbo
 pros::MotorGroup Leftsidedrive({FL, BL, TL});
 pros::MotorGroup Rightsidedrive({FR, BR, TR});
 
-// Rotation sensors for odom
-pros::Rotation rot(9, false); // port 9, not reversed
-pros::Rotation brot(10, false); // port 10, not reversed
-
 // inertial sensor
 pros::Imu inertial_sensor(2); // port 2
