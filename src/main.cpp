@@ -1,7 +1,7 @@
 #include "main.h"
 #include "lemlib/api.hpp"
 #include "CustomFiles/DriveOdomConst.hpp"
-
+#include "CustomFiles/Intake.hpp"
 // ..................................................................................
 // ..................................................................................
 
@@ -111,6 +111,8 @@ void opcontrol() {
     	int right = power - turn;
 		Leftsidedrive.move(left);
     	Rightsidedrive.move(right);
+
+		setIntakeMotor();
 
 		pros::delay(20);
 		}
