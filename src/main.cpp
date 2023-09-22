@@ -103,7 +103,6 @@ void opcontrol() {
         Cata.brake();
     	} else{
         Cata.move(127);
-    
 
 		// Split arcade drive code
 		int power = master.get_analog(ANALOG_LEFT_Y);
