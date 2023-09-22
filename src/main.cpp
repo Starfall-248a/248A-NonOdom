@@ -95,6 +95,8 @@ void opcontrol() {
 						 (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
 						 (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);
 		
+
+
 		//Catapult motor controller
 		if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
         Cata.move(127);
