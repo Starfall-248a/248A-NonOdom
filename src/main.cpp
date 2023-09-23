@@ -1,7 +1,7 @@
 #include "main.h"
 #include "lemlib/api.hpp"
 #include "CustomFiles/DriveOdomConst.hpp"
-
+#include "CustomFiles/Intake.hpp"
 // ..................................................................................
 // ..................................................................................
 
@@ -104,7 +104,6 @@ void opcontrol() {
 						 (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
 						 (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);
 		
-		
 		//Catapult motor controller
 		if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)){
         Cata.move(127);
@@ -113,7 +112,6 @@ void opcontrol() {
         Cata.brake();
     	} else{
         Cata.move(127);
-    
 
 		// Split arcade drive code
 		int power = master.get_analog(ANALOG_LEFT_Y);
@@ -122,6 +120,8 @@ void opcontrol() {
     	int right = power - turn;
 		Leftsidedrive.move(left);
     	Rightsidedrive.move(right);
+
+		setIntakeMotor();
 
 		pros::delay(20);
 		}
