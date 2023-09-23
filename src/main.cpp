@@ -73,6 +73,15 @@ void autonomous() {
 	chassis.moveTo(43,11,2000,95.25);
 	chassis.moveTo(31,33,3000,95.25);
 	chassis.moveTo(54,56,4000,82.55);
+	chassis.moveTo(31,33,3000,95.25);
+	chassis.moveTo(24,11,4000,82.55);
+	Intake.move(127);
+	chassis.moveTo(20,11,1000,50);
+	chassis.moveTo(24,11,1000,-50);
+	Intake.set_brake_mode(MOTOR_BRAKE_BRAKE);
+	Intake.move(0);
+	pros::delay(100);
+	Intake.set_brake_mode(MOTOR_BRAKE_COAST);
 }
 
 /**
