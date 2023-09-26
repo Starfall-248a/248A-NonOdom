@@ -1,5 +1,6 @@
 #include "main.h"
- 
+#include "PIDControllers.hpp"
+
 // Motors for drivetrain, cata, and intake
 pros::Controller master(pros::E_CONTROLLER_MASTER);
 pros::Motor FL(3, pros::E_MOTOR_GEARSET_06, true); // port 3, blue gearbox, reversed
@@ -26,3 +27,4 @@ pros::Imu inertial_sensor(2); // port 2
 
 // Cata limit switch
 pros::ADIDigitalIn Catalimit('B'); // slot b, limit switch
+

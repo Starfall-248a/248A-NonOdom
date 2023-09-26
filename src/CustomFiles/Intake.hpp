@@ -1,5 +1,5 @@
 #include "main.h"
-#include "Globals.hpp"
+#include "src/main.cpp"
 
 void setIntake(int power){
     Intake = power;   
