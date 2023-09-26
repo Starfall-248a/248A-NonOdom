@@ -2,6 +2,7 @@
 #include "lemlib/api.hpp"
 #include "CustomFiles/DriveOdomConst.hpp"
 #include "CustomFiles/Intake.hpp"
+
 // ..................................................................................
 // ..................................................................................
 
@@ -68,7 +69,8 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-	chassis.setPose(36,59,180);
+	// Offside match auton
+	chassis.setPose(36,60,180);
 	chassis.moveTo(36,11,4000,95.25);
 	chassis.moveTo(43,11,2000,95.25);
 	chassis.moveTo(31,33,3000,95.25);
@@ -82,6 +84,9 @@ void autonomous() {
 	Intake.move(0);
 	pros::delay(100);
 	Intake.set_brake_mode(MOTOR_BRAKE_COAST);
+
+	// Onside match auton
+	chassis.setPose(-36,60,180);
 }
 
 /**
