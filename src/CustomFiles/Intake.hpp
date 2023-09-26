@@ -1,5 +1,4 @@
 #include "main.h"
-#include "src/main.cpp"
 
 void setIntake(int power){
     Intake = power;   
