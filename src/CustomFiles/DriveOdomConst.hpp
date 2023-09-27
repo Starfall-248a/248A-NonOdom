@@ -1,6 +1,7 @@
 #include "main.h"
 #include "lemlib/api.hpp"
 #include "Globals.hpp"
+#include "PIDControllers.hpp"
 
 lemlib::Drivetrain_t drivetrain {
 	&Leftsidedrive, // left drivetrain motors
