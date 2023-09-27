@@ -132,20 +132,21 @@ void opcontrol()
 		{
 			Intake.move(0);
 		}
-			// Catapult motor controller
-			if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2) and Catalimit.get_value())
-			{
-				Cata.move_relative(50, 127);
-			}
-			else if (Catalimit.get_value())
-			{
-				Cata.brake();
-			}
-			else
-			{
-				Cata.move(127);
-			}
+		// // Catapult motor controller
+		// if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2) and Catalimit.get_value())
+		// {
+		// 	Cata.move_relative(50, 127);
+		// }
+		// else if (Catalimit.get_value())
+		// {
+		// 	Cata.brake();
+		// }
+		// else
+		// {
+		// 	Cata.move(127);
+		// }
 
+		Catacontrol();
 
 		// Split arcade drive code
 		int power = master.get_analog(ANALOG_LEFT_Y);
