@@ -2,8 +2,7 @@
 #include "lemlib/api.hpp"
 #include "CustomFiles/DriveOdomConst.hpp"
 #include "CustomFiles/Cata.hpp"
-#include "Pneumatics.cpp"
-#include "../../248A-Main/include/pros/adi.hpp"
+#include "pros/adi.hpp"
 // ..................................................................................
 // ..................................................................................
 
@@ -14,7 +13,6 @@ void setIntake(){
         IntakePivot.set_value(false);
     }
 }
-
 
 /**
  * A callback function for LLEMU's center button.
@@ -156,8 +154,8 @@ void opcontrol()
 		Leftsidedrive.move(left);
 		Rightsidedrive.move(right);
 
-				// setIntakeMotor();
+		// setIntakeMotor();
 
-				pros::delay(20);
-			}
+		pros::delay(20);
 	}
+}
