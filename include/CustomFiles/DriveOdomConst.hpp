@@ -3,6 +3,8 @@
 #include "Globals.hpp"
 #include "PIDControllers.hpp"
 
+#pragma once
+
 lemlib::Drivetrain_t drivetrain {
 	&Leftsidedrive, // left drivetrain motors
 	&Rightsidedrive, // right drivetrain motors

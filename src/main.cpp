@@ -2,9 +2,19 @@
 #include "lemlib/api.hpp"
 #include "CustomFiles/DriveOdomConst.hpp"
 #include "CustomFiles/Cata.hpp"
+#include "Pneumatics.cpp"
+#include "../../248A-Main/include/pros/adi.hpp"
+// ..................................................................................
+// ..................................................................................
 
-// ..................................................................................
-// ..................................................................................
+void setIntake(){
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
+        IntakePivot.set_value(true);
+    } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1) && IntakePivot.get_value() == true){
+        IntakePivot.set_value(false);
+    }
+}
+
 
 /**
  * A callback function for LLEMU's center button.
@@ -119,6 +129,8 @@ void opcontrol()
 						 (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
 						 (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);
 	
+		
+		
 		// Intake controller
 		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1))
 		{
@@ -132,21 +144,9 @@ void opcontrol()
 		{
 			Intake.move(0);
 		}
-		// // Catapult motor controller
-		// if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2) and Catalimit.get_value())
-		// {
-		// 	Cata.move_relative(50, 127);
-		// }
-		// else if (Catalimit.get_value())
-		// {
-		// 	Cata.brake();
-		// }
-		// else
-		// {
-		// 	Cata.move(127);
-		// }
 
 		Catacontrol();
+		setIntake();
 
 		// Split arcade drive code
 		int power = master.get_analog(ANALOG_LEFT_Y);

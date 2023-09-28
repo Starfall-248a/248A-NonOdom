@@ -9,7 +9,7 @@ pros::Motor TL(5, pros::E_MOTOR_GEARSET_06, false); // port 5, blue gearbox, not
 pros::Motor FR(6, pros::E_MOTOR_GEARSET_06, false); // port 6, blue gearbox, not reveresed
 pros::Motor BR(7, pros::E_MOTOR_GEARSET_06, false); // port 7, blue gearbox, not reveresed
 pros::Motor TR(8, pros::E_MOTOR_GEARSET_06, true); // port 8, blue gearbox, reversed
-pros::Motor Cata(9, pros::E_MOTOR_GEARSET_36, true); // port 1, red gearbox, not reveresed
+pros::Motor Cata(9, pros::E_MOTOR_GEARSET_36, true); // port 9, red gearbox, reversed
 pros::Motor Intake(11, pros::E_MOTOR_GEARSET_06, false); // port 11, blue gearbox, not reveresed
 
 // Motor groups for drive

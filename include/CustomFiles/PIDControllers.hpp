@@ -1,6 +1,8 @@
 #include "main.h"
 #include "lemlib/api.hpp"
 
+#pragma once
+
 // forward/backward PID
 lemlib::ChassisController_t lateralController {
 	8, // kP
