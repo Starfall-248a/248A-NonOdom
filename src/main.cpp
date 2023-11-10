@@ -1,18 +1,11 @@
 #include "main.h"
 #include "lemlib/api.hpp"
 #include "CustomFiles/DriveOdomConst.hpp"
-#include "CustomFiles/Cata.hpp"
+// #include "CustomFiles/Cata.hpp"
 #include "pros/adi.hpp"
 // ..................................................................................
 // ..................................................................................
 
-void setIntake(){
-    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
-        IntakePivot.set_value(true);
-    } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1) && IntakePivot.get_value() == true){
-        IntakePivot.set_value(false);
-    }
-}
 
 /**
  * A callback function for LLEMU's center button.
@@ -126,7 +119,6 @@ void opcontrol()
 		pros::lcd::print(0, "%d %d %d", (pros::lcd::read_buttons() & LCD_BTN_LEFT) >> 2,
 						 (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
 						 (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);
-	
 		
 		
 		// Intake controller
@@ -143,9 +135,14 @@ void opcontrol()
 			Intake.move(0);
 		}
 
-		Catacontrol();
-		setIntake();
-
+		// Cata controller
+		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
+			Cata.move(127);
+		}
+		else {
+			Cata.brake();
+		}
+		
 		// Split arcade drive code
 		int power = master.get_analog(ANALOG_LEFT_Y);
 		int turn = master.get_analog(ANALOG_RIGHT_X);
