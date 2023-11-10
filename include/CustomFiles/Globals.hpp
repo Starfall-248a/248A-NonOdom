@@ -10,17 +10,19 @@ pros::Motor FR(6, pros::E_MOTOR_GEARSET_06, false); // port 6, blue gearbox, not
 pros::Motor BR(7, pros::E_MOTOR_GEARSET_06, false); // port 7, blue gearbox, not reveresed
 pros::Motor TR(8, pros::E_MOTOR_GEARSET_06, true); // port 8, blue gearbox, reversed
 pros::Motor Cata(9, pros::E_MOTOR_GEARSET_36, true); // port 9, red gearbox, reversed
-pros::Motor Intake(11, pros::E_MOTOR_GEARSET_06, false); // port 11, blue gearbox, not reveresed
+pros::Motor Intake(10, pros::E_MOTOR_GEARSET_06, false); // port 11, blue gearbox, not reveresed
 
 // Motor groups for drive
 pros::MotorGroup Leftsidedrive({FL, BL, TL});
 pros::MotorGroup Rightsidedrive({FR, BR, TR});
 
 //Pnematics
-pros::ADIDigitalOut IntakePivot('B', false); // 3 Wire slot b, Intake pivot pistons
+pros::ADIDigitalOut WingL('B'); // 3 Wire slot b, Left wing
+pros::ADIDigitalOut WingR('C'); // 3 Wire slot c, Right wing
+pros::ADIDigitalOut Blocka('D'); // 3 Wire slot d, Blocka
 
 // Rotation sensors for odom
-pros::Rotation brot(10, false); // port 10, not reversed
+pros::Rotation brot(11, false); // port 10, not reversed
 
 // inertial sensor
 pros::Imu inertial_sensor(2); // port 2
