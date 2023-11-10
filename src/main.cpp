@@ -7,6 +7,9 @@
 // ..................................................................................
 
 
+bool Blocker = false;
+bool Wings = false;
+
 /**
  * A callback function for LLEMU's center button.
  *
@@ -143,6 +146,22 @@ void opcontrol()
 			Cata.brake();
 		}
 		
+	// 	if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R1)) {
+    //   		while(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R1)) {
+    //     		pros::delay(1);
+    //   		}
+    //   		Wings = !Wings;
+    //   		WingL.set_value(Wings);
+    //   		WingR.set_value(Wings);
+    // }
+
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R1)) {
+              Wings = !Wings;
+              WingL.set_value(Wings);
+              WingR.set_value(Wings);
+    }
+
+
 		// Split arcade drive code
 		int power = master.get_analog(ANALOG_LEFT_Y);
 		int turn = master.get_analog(ANALOG_RIGHT_X);

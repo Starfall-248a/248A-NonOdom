@@ -17,7 +17,9 @@ pros::MotorGroup Leftsidedrive({FL, BL, TL});
 pros::MotorGroup Rightsidedrive({FR, BR, TR});
 
 //Pnematics
-pros::ADIDigitalOut IntakePivot('B', false); // 3 Wire slot b, Intake pivot pistons
+pros::ADIDigitalOut WingL('B'); // 3 Wire slot b, Left wing
+pros::ADIDigitalOut WingR('C'); // 3 Wire slot c, Right wing
+pros::ADIDigitalOut Blocka('D'); // 3 Wire slot d, Blocka
 
 // Rotation sensors for odom
 pros::Rotation brot(11, false); // port 10, not reversed
